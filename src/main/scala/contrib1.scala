@@ -1,3 +1,4 @@
+
 object contrib1 extends App {
   /*Notes
  1) Why [+A] in MyLazyList Trait?
@@ -24,6 +25,13 @@ object contrib1 extends App {
       if (isEmpty) MyLazyList.empty
       else MyLazyList.cons(f(head), tail.map(f))
     }
+
+    def dropWhile(f: A => Boolean): MyLazyList[A] = {
+      if(isEmpty) MyLazyList.empty
+      else if(f(head)){tail.dropWhile(f)}
+      else this
+    }
+
   }
 
   object MyLazyList{
@@ -37,6 +45,11 @@ object contrib1 extends App {
       lazy val head = h
       lazy val tail = tl
       val isEmpty = false
+    }
+
+    def apply[A](asType: A*): MyLazyList[A] ={
+      if (asType.isEmpty) MyLazyList.empty
+      else MyLazyList.cons(asType.head,apply(asType.tail: _*))
     }
 
   }
