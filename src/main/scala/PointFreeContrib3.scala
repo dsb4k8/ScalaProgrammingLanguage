@@ -5,35 +5,42 @@ import monadtypepackages._
 
 object PointFreeContrib3 {
   /*
-      -A Function which takes a Unit and returns the result is called a `Thunk`
-      1) Create a type alias which takes an A and returns a function which returns A
-      2) The `description` of our run program A is simply a Thunk of A
-      */
+  To convert from contrib3 to Point-free, remove any functions which require input
 
-  //  private type Thunk[A] = () => A
-  //  type Description[A] = Thunk[A]
+  example => Get rid of input and inline it into integerAmount. Simply use substitution.
 
-  /* Instead of Unit, we can return a Description of Unit, thus transforming it from a side-effect to a pure effect*/
+   */
   def createDescription(args: Array[String]): Description[Unit] = Description.create {
-    display(hyphens)
-    display(question)
+    display(
+      hyphens(())
+    )
+    display(
+      question(())
+    )
 
-    val input: String = prompt()
-    val integerAmount: Int = ConvertStringToInt(input)
-    val positiveAmount:Int = ensureAmountIsPositive(integerAmount)
-    val balance: Int = round(positiveAmount)
-    val message: String = createMessage(balance)
-
-    display(message)
-    display(hyphens)
+    display(
+      createMessage(
+        round(
+          ensureAmountIsPositive(
+            ConvertStringToInt(
+              prompt(())
+            )
+          )
+        )
+      )
+    )
+    display(
+      hyphens(())
+    )
   }
 
-  private val hyphens: String = "\u2500" * 50
-  private val question:String = "How much money would you like to deposit?"
+  private def hyphens(input: Any): String = "\u2500" * 50
+
+  private def question(input: Any): String = "How much money would you like to deposit?"
   //the side-effect causing behavior(e.g console writing)
   private def display(anyInput: Any): Unit = println(anyInput)
   //the side-effect causing behavior(e.g console reading)
-  private def prompt(): String = scala.io.StdIn.readLine
+  private def prompt(input: Any): String = scala.io.StdIn.readLine()
   private def ConvertStringToInt(amt: String): Int = amt.toInt
   private def ensureAmountIsPositive(i: Int): Int = if(i<0) 1 else i
   @tailrec
