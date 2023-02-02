@@ -1,5 +1,4 @@
-import contrib3.Description
-
+import monadtypepackages._
 object Interpreter {
 /*This is the end of the world (of our contrib3 program)
   Basically, contrib3 defines a `Thunk` (i.e a type alias which takes an A and returns a function of A),
@@ -10,8 +9,10 @@ object Interpreter {
 
   def main(args: Array[String]): Unit = {
 //    contrib3.run(args)
-    val description: Description[Unit] = contrib3.createDescription(args)
+    print(Console.RED)
+    val description: Description[Unit] = PointFreeContrib3.createDescription(args)
     def interpret[A](description: Description[A]): A = description.apply()
+    print(Console.GREEN)
     interpret(description)
   }
 }

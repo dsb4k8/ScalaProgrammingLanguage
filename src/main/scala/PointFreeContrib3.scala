@@ -1,18 +1,19 @@
+
 import scala.annotation.tailrec
 import monadtypepackages._
 
 
-object contrib3 {
-/*
-    -A Function which takes a Unit and returns the result is called a `Thunk`
-    1) Create a type alias which takes an A and returns a function which returns A
-    2) The `description` of our run program A is simply a Thunk of A
-    */
+object PointFreeContrib3 {
+  /*
+      -A Function which takes a Unit and returns the result is called a `Thunk`
+      1) Create a type alias which takes an A and returns a function which returns A
+      2) The `description` of our run program A is simply a Thunk of A
+      */
 
-//  private type Thunk[A] = () => A
-//  type Description[A] = Thunk[A]
+  //  private type Thunk[A] = () => A
+  //  type Description[A] = Thunk[A]
 
-/* Instead of Unit, we can return a Description of Unit, thus transforming it from a side-effect to a pure effect*/
+  /* Instead of Unit, we can return a Description of Unit, thus transforming it from a side-effect to a pure effect*/
   def createDescription(args: Array[String]): Description[Unit] = Description.create {
     display(hyphens)
     display(question)
@@ -44,12 +45,12 @@ object contrib3 {
 
 
 
-//  object s{
-//    val l1 = List(1,2,3,4,5)
-//    val l2 = List(6,7,8,9,10)
-//    def z = l1.flatMap(list1 =>l2.map(list2 => list1+list2))
-//  }
-//
+  //  object s{
+  //    val l1 = List(1,2,3,4,5)
+  //    val l2 = List(6,7,8,9,10)
+  //    def z = l1.flatMap(list1 =>l2.map(list2 => list1+list2))
+  //  }
+  //
   def main(args: Array[String]): Unit = {
 
   }
