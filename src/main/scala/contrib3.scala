@@ -2,29 +2,15 @@ import scala.annotation.tailrec
 
 object contrib3 {
 /*
-* Monads are a mechanism that make auto-composition of special functions possible
-* it also makes manual composition of certain objects affordable
-*  - in normal functions, they take an A and produce a B
-*  - in other words, B is the effect the functon has on the program
-*  -  - In this case, B is considered a `pure` effect
-*  -  - Any other things which happen are considered `side` effects - e.g querying a database, writing to console, etc
-* MOTIVATION
-*  - Programs which produce side-effects are useless to functional programmers
-*  - Instead a `special` kind of function is added which assigns additional information to the output B
-*  - Thus the the would-be `side-effect` is not interperated as a `pure` effect
-* RECAP, a regular function takes some A and produces some B
-* A Monad however takes some A and returns a B wrapped into some additional information
-* example:
-* type Regular[A,B,C]  = A => B
-* type Monadic[A,B,C[_]]= A => C[B]
-*
-*
-* Prompt: The government is changing the currency and everyone is mad.
-*         To quell anger, we need to build an ATM service which accepts any currency and rounds it up to the nearest $100
-*         e.g. $130 deposits as $200
-* */
+    -A Function which takes a Unit and returns the result is called a `Thunk`
+    1) Create a type alias which takes an A and returns a function which returns A
+    2) The `description` of our run program A is simply a Thunk of A
+    */
+  private type Thunk[A] = () => A
+  type Description[A] = Thunk[A]
 
-  def run(args: Array[String]): Unit = {
+/* Instead of Unit, we can return a Description of Unit, thus transforming it from a side-effect to a pure effect*/
+  def createDescription(args: Array[String]): Description[Unit] = () => {
     display(hyphens)
     display(question)
 
@@ -61,9 +47,8 @@ object contrib3 {
 //    def z = l1.flatMap(list1 =>l2.map(list2 => list1+list2))
 //  }
 //
-//  def main(args: Array[String]): Unit = {
-//    println(s.z)
-//
-//  }
+  def main(args: Array[String]): Unit = {
+
+  }
 
 }
