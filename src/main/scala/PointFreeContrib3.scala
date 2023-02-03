@@ -10,29 +10,32 @@ object PointFreeContrib3 {
   example => Get rid of input and inline it into integerAmount. Simply use substitution.
 
    */
-  def createDescription(args: Array[String]): Description[Unit] = Description.create {
+  def createDescription(args: Array[String]): Description[Unit] =
+    Description.create(
     display(
-      hyphens(())
-    )
-    display(
-      question(())
-    )
-
-    display(
-      createMessage(
-        round(
-          ensureAmountIsPositive(
-            ConvertStringToInt(
-              prompt(())
+      hyphens(
+        display(
+          createMessage(
+            round(
+              ensureAmountIsPositive(
+                ConvertStringToInt(
+                  prompt(
+                    display(
+                      question(
+                        display(
+                          hyphens(args)
+                        )
+                      )
+                    )
+                  )
+                )
+              )
             )
           )
         )
       )
     )
-    display(
-      hyphens(())
-    )
-  }
+  )
 
   private def hyphens(input: Any): String = "\u2500" * 50
 
