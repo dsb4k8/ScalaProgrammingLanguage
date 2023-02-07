@@ -1,4 +1,4 @@
-import monadtypepackages._
+package contrib3
 object Interpreter {
 /*This is the end of the world (of our contrib3 program)
   Basically, contrib3 defines a `Thunk` (i.e a type alias which takes an A and returns a function of A),

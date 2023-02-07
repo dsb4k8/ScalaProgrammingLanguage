@@ -1,5 +1,5 @@
 
-package object monadtypepackages {
+package object contrib3 {
   private type Thunk[A] = () => A
   type Description[A] = Thunk[A]
 

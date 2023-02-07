@@ -1,3 +1,5 @@
+package contrib3
+
 import scala.annotation.tailrec
 
 object pre_monad_ified_contrib3 {
