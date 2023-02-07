@@ -1,6 +1,7 @@
+package contrib3
+
 
 import scala.annotation.tailrec
-import monadtypepackages._
 
 
 object PointFreeContrib3 {
