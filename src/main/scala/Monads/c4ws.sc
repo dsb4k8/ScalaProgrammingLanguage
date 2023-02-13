@@ -1,4 +1,14 @@
 
+val v = List(1,3,2,4,5)
+val isSorted = v.equals(v.sorted)
+
+
+
+
+
+
+
+
 
 
 
