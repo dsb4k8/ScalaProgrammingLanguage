@@ -1,6 +1,33 @@
 
-val v = List(1,3,2,4,5)
-val isSorted = v.equals(v.sorted)
+//Definition for a binary tree node.
+class TreeeNode(_value: Int = 0, _left: TreeeNode = null, _right: TreeeNode = null) {
+  var value: Int = _value
+  var left: TreeeNode = _left
+  var right: TreeeNode = _right
+}
+
+
+//  print current node
+//  if left node not null, run method for left tree
+//  else run method for right tree
+object Solution{
+//  def tree2str(root: TreeeNode): String =  {
+//    def step(tn: TreeeNode): String = {
+////      if (tn.value!=null) s"${tn.value}(${})"
+//    }
+//  }
+}
+
+
+
+val v = new TreeeNode(1)
+v.value
+v.left = new TreeeNode(2, new TreeeNode(4, new TreeeNode(4), null), null)
+v.right = new TreeeNode(3)
+v.left.left.value
+v.right.value
+//
+//val isSorted = v.equals(v.sorted)
 
 
 
