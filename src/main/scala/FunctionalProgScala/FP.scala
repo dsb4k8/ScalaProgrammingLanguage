@@ -1,5 +1,7 @@
 package FunctionalProgScala
 
+import scala.math.BigInt
+
 object FP extends App {
 
   class Triangle(name: String){
@@ -68,8 +70,37 @@ object FP extends App {
   }
 
   val listOfInts = List(1,2,3)
-  println(listOfInts.zipWithAlpha)
 
+  val a = List(0,1,0)
+  println(a.zip(a.tail).map(x => x._1+x._2))
+
+  val fibN = 10
+
+//  take(fibN).foreach(println())
+
+//  fib.take(2000).foreach(x => println(x))
+
+//  val pascals: List[BigInt] => List[BigInt] = BigInt(0)
+  val oddNaturalsFrom1to1000 = LazyList.from(0).filter(x => x%2 !=0)
+//  oddNaturalsFrom1to1000.take(3000).foreach(x => println(x))
+
+  val fibonacci: LazyList[BigInt] = BigInt(0)#::BigInt(1)#::fibonacci.zip(fibonacci.tail).map(x => x._1 + x._2)
+
+//  println(fibonacci.take(1200).sum)
+//  def pascalsTriangle(row: Int, col: Int, memo: Map[(Int,Int),Int]): Int =  {
+//    val momo = memo
+//    if(momo.contains((row,col))) momo((row,col))
+//    else {
+//      if((col<1) || col>row)||(row<1)))0 else {
+//        momo+((row,col)->(pascalsTriangle(row-1, col-1, momo) + pascalsTriangle(row-1, col, momo)))
+//        pascalsTriangle(row-1, col-1, momo) + pascalsTriangle(row-1, col, momo)
+//      }
+//    }
+//  }
+//  println(pascalsTriangle(2,1, Map()))
+//
+  val lazyFib: LazyList[BigInt] = BigInt(0)#::BigInt(1)#::lazyFib.zip(lazyFib.tail).map(offset => offset._1 + offset._2)
+  println(lazyFib(30)/(lazyFib(22)))
 
 
 }
