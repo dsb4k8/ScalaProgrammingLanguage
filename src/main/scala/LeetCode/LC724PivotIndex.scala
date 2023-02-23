@@ -7,7 +7,8 @@ object LC724PivotIndex {
     val quantities2 = nums2.map(x => (x,nums2.count(_==x)))
 //    short_long_pair._1.filter(element => short_long_pair._2.contains(element)).map(x => )
     println(quantities2)
-    quantities1.filter(x => nums2.contains(x._1)).map(y => quantities2.filter(y => nums2.contains(y._1))).max(x._2,y._2)
+//    quantities1.filter(x => nums2.contains(x._1)).map(y => quantities2.filter(y => nums2.contains(y._1))).max(x._2,y._2)
+    Array((1,1))
   }
 
   def main(args: Array[String]): Unit = {

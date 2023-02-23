@@ -23,21 +23,21 @@ object LC5 {
 
 
 
-    println("llob".getPalendromes)
-    def rec(s: String): String = {
-      def loop(sn: String, largest: List[String]): String = s.getPotentialPalendrome.isPalendrome match{
-        case false =>
-        case x::xs => if(sn.getPalendromes.isPalendrome) loop( xs.toString, largest.appended(sn.getPalendromes)) else loop(xs.toString(), largest)
-      }
-      loop(s, List("")).sorted.foreach(x => println(x))
-
-    }
+//    println("llob".getPalendromes)
+//    def rec(s: String): String = {
+//      def loop(sn: String, largest: List[String]): String = s.getPotentialPalendrome.isPalendrome match{
+//        case false =>
+//        case x::xs => if(sn.getPalendromes.isPalendrome) loop( xs.toString, largest.appended(sn.getPalendromes)) else loop(xs.toString(), largest)
+//      }
+//      loop(s, List("")).sorted.foreach(x => println(x))
+//
+//    }
 //    println("bolllob".isPalendrome)
 
 
 
-//    val isPalendrome
-    println(rec("bobobobob"))
+////    val isPalendrome
+//    println(rec("bobobobob"))
 
   }
 
