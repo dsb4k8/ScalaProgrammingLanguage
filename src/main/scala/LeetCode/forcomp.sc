@@ -16,3 +16,25 @@ val v = for{
 } yield(mx-mn, (x,y,z))
 
 v.min._2
+
+val m = "a"
+val n = "good"
+val s = "alice is a good girl she is a good student".split(" ").indexOfSlice(Seq(m,n))
+"alice is a good girl she is a good student".split(" ")(s+2)
+"alice is a good girl she is a good student".split(" ").takeRight(s+3)
+2+:Array(1)
+def findOcurrences(text: String, first: String, second: String): Array[String] = {
+  def loop(t: String, f: String, s: String): Array[String] = {
+    val ids = t.indexOfSlice(Seq(f,s))
+    t.split(" ").toList.length match{
+      case 0 => Array("")
+      case 1 => Array("")
+      case 2 => Array("")
+      case _ => t.split(" ")(ids+2) +: loop(t.takeRight(ids+3), f, s)
+
+    }
+  }
+  loop(text, first, second)
+}
+
+findOcurrences("alice is a good girl she is a good student", "a", "good")
